@@ -15,3 +15,5 @@
   * Model Accuracy
   * Confusion Matrix
 * Feature Analysis & Conclusion
+
+The 'data' folder contains different game telemetry data used for different hypotheses and models in the analytics process
