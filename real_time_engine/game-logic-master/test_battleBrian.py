@@ -4,6 +4,7 @@ import importlib
 import gym
 import gym_everglades
 import pdb
+import math
 
 import numpy as np
 
@@ -86,6 +87,7 @@ while not done:
         Running_Game=GameState(data_List)
     #update games state after a turn runs    
     Running_Game.update_game_state(data_List,turn_number)
+    featureList=Running_Game.features(turn_number)
     
     ### Show how refined list works#####
     #print(refined_list(data_List['NODE_Knowledge'],turn_number)) #all data for a turn
@@ -94,10 +96,12 @@ while not done:
     #print(refined_list(data_List['NODE_Knowledge'],turn_number)[0][1][0]) #all cells are a list/tuple so even if it is one element it must be ref. with zero
    
   
-    
-    #Engine.prediction_alg(1,[[1,1,1]])
+    print("Turn >>>>",turn_number)
+    Engine.prediction_alg(math.ceil(float(featureList[0])/2)-1,[featureList[1:]])
     print("***************************")
     
     turn_number+=1
-#print(reward)
+###Used to write turn by turn data to the CSVs which are used to build models
+#Running_Game.print_features_CSV()
+
 

@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 import pickle
+import math
 
 
 rootdir = 'models'
@@ -18,7 +19,7 @@ class RT_Engine:
             list=files
         
         for file in list:
-            
+            #print(">>>>>>"+file)
             file_temp= "models/" + file
         
             current_model=pickle.load(open(file_temp,'rb'))
@@ -35,7 +36,7 @@ class RT_Engine:
 class GameState:
     def __init__(self,data_list):
         '''Intialize game state '''
-        
+        self.CSV_features=[]
         #set starting scores
         self.player_one_score=0
         self.player_two_score=0
@@ -178,7 +179,7 @@ class GameState:
         if turn_number==150:
             if int(self.player_one_score)>int(self.player_two_score):
                 return 0
-            elif intint(self.player_two_score)>int(self.player_one_score):
+            elif int(self.player_two_score)>int(self.player_one_score):
                 return 1
             #tie
             else:
@@ -191,8 +192,49 @@ class GameState:
             return 0
         else:
             return None
-
+    #custom feature list, there potentially could be variants of feature lists
+    #returns turn number, the difference in points, Player 1 base % control, Play 2 base % control, difference in units, differene in unit health
+    #This is also appened to the CSV_feature list that is used to print to turn summary CSVs
+    def features(self,turn_number):
+        feature_list = []
+        feature_list.append(turn_number)
+        point_diff=int(self.player_one_score)-int(self.player_two_score)
+        feature_list.append(point_diff)
         
+        player1_Base_controll=self.get_opponent_base_control()[0]
+        player2_Base_controll=self.get_opponent_base_control()[1]
+        feature_list.append(player1_Base_controll)
+        feature_list.append(player2_Base_controll)
+        
+        unit_diff = int(self.get_player_remaining_units()[0]) - int(self.get_player_remaining_units()[1])
+        feature_list.append(unit_diff)
+        
+        unit_health_diff = round(float(self.get_avg_unit_health()[0]) - float(self.get_avg_unit_health()[1]),5)
+        feature_list.append(unit_health_diff)
+        #print(feature_list)
+        #append to the CSV that can be used to build data sets
+        self.CSV_features.append(feature_list)
+        return feature_list
+    
+    #Used to generate data sets
+    #writes any features stored in CSV_features to CSV files turn by turn (in two turn pairs) to \datasets
+    #Used to train models for the prediction algorithm: model_training.py
+    def print_features_CSV(self):
+        
+        for item in self.CSV_features:
+            model_turn = math.ceil(float(item[0])/2)
+            
+            model_turn=round(model_turn * 0.01,2)
+            #print(model_turn)
+            filestr=("datasets/Game_summary"+str(model_turn)+".csv")
+            
+            
+            fileCSV = open(filestr,"a+")
+            fileCSV.write(str(self.determine_winner(150))+',')
+            for element in item:
+                
+                fileCSV.write(str(element)+',')
+            fileCSV.write("\n")
     def print_summary(self):
         print("~~~~~~~~   Board State    ~~~~~~~~~")
         print("Node Control" + str(self.node_controller))
