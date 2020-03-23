@@ -27,11 +27,18 @@ class RT_Engine:
             
     #Prediction algorithm
     #Takes in turn number and a list of features
-    #TO DO: returns a list of probabilities [0: %to win, 1: % to win]
+    #returns a list of P1,P2 and Tie probabilities
+
     def prediction_alg(self,turn,feature_list):
-        print(self.model_list[turn].predict_proba(feature_list))
+        pred=self.model_list[turn].predict_proba(feature_list)
+        pred_list=[]
+        pred_list.append(float(pred[0][0])*100)
+        pred_list.append(float(pred[0][1])*100)
+        #pred_list.append(float(pred[0][2])*100)
+        
+        return pred_list
       
-        print(self.model_list[turn].predict(feature_list))
+        
         
 class GameState:
     def __init__(self,data_list):
@@ -226,7 +233,7 @@ class GameState:
             
             model_turn=round(model_turn * 0.01,2)
             #print(model_turn)
-            filestr=("datasets/Game_summary"+str(model_turn)+".csv")
+            filestr=("datasets2/Game_summary"+str(model_turn)+".csv")
             
             
             fileCSV = open(filestr,"a+")
@@ -306,5 +313,4 @@ def refined_list(telem_list,turn_number):
             edit_list=[]
                     
     return final_list        
-#engine =RT_Engine()
-#engine.prediction_alg(0,[[1,1,1]])
+

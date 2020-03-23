@@ -64,7 +64,7 @@ class all_cycle:
         #    print(obs[i:i+5])
         #print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         action = np.zeros(self.shape)
-
+        
         # The next line should really be 0, but there is an env bug that the agent doesn't get
         # to see the 0th observation to make it's first move; one turn gets blown
         if not self.first_turn:
@@ -77,8 +77,11 @@ class all_cycle:
     # end get_action
 
     def act_all_cycle(self,actions=np.zeros((7,2))):
+        
+            
         for i in range(0,7):
             actions[i] = [self.group_num, self.node_num]
+            
             #self.group_num = ((self.group_num-1) + 1) % self.grouplen + 1
             self.group_num = (self.group_num + 1) % self.grouplen 
             nodetest = ((self.node_num-1) + 1) % self.nodelen + 1

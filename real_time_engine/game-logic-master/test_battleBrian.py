@@ -14,14 +14,17 @@ from RT_Engine_Class import *
 ## Input Variables
 # Agent files must include a class of the same name with a 'get_action' function
 # Do not include './' in file path
-agent0_file = ('agents/random_actions.py')
+#agent0_file = ('agents/random_actions.py')
 #agent0_file = ('agents/all_cycle.py')
-#agent0_file = ('agents/base_rushV1.py')
+agent0_file = ('agents/base_rushV1.py')
+#agent0_file = ('agents/Cycle_BRush_Turn50.py')
+#agent0_file = ('agents/Cycle_BRush_Turn25.py')
 #agent0_file = ('agents/SwarmAgent.py')
 
 #agent1_file = 'agents/same_commands.py'
-agent1_file = 'agents/random_actions.py'
+#agent1_file = 'agents/random_actions.py'
 #agent1_file = ('agents/all_cycle.py')
+agent1_file = ('agents/base_rushV1.py')
 
 config_dir = 'config/'
 map_file = config_dir + 'DemoMap.json'
@@ -63,7 +66,7 @@ observations = env.reset(
 )
 
 actions = {}
-Engine = RT_Engine()
+#Engine = RT_Engine()
 ## Game Loop
 done = 0
 turn_number=1
@@ -97,7 +100,9 @@ while not done:
    
   
     print("Turn >>>>",turn_number)
-    Engine.prediction_alg(math.ceil(float(featureList[0])/2)-1,[featureList[1:]])
+    #predictions = Engine.prediction_alg(math.ceil(float(featureList[0])/2)-1,[featureList[1:]])
+    #print(predictions)
+    
     print("***************************")
     
     turn_number+=1

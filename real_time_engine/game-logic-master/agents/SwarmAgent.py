@@ -69,6 +69,7 @@ class SwarmAgent:
         index = 0
         while i < 105:
             self.army[index].pos = obs[i]
+            print('>>>>>>```````````````````````````',obs[i])
             self.army[index].type = obs[i+1]
             self.army[index].tran = obs[i+3]
             #print(self.army[index])
@@ -78,6 +79,7 @@ class SwarmAgent:
 
     def get_action(self, obs):
         #print('----Making Action List----')
+        print('>>>>>>',obs)
         a = np.array([0,1])
         action = np.tile(a, (7, 1))
 
