@@ -3,6 +3,29 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.io.*;
 
+/*
+  This class was developed by modifying an existing java class
+  provided as part of UCF's COP4516 class to teach implementation
+  of Dijkstra's algorithm. It was modified to print the next node
+  to move to from each node to the target node. 
+
+  Input is of the form
+  
+  c
+  n e
+  to from weight - e1
+  to from weight - e2
+  ...
+  
+  c: number of graphs to analyze
+  n: number of nodes in graph
+  e: number of directed edges in graph
+  followed by each edge in the form of
+          to from weight
+  
+  For example input, refer to everBoard.txt
+*/
+
 public class truedan {
 
   // Store graph here
@@ -11,7 +34,7 @@ public class truedan {
 
   public static void main(String[] args) throws Exception{
 
-    Scanner in = new Scanner(new File("everBoard.txt"));
+    Scanner in = new Scanner(System.in);
     int cases = in.nextInt();
 
     // Process each case.
@@ -20,8 +43,6 @@ public class truedan {
       // Read the graph.
       n = in.nextInt();
       int m = in.nextInt();
-      int d = in.nextInt() - 1;
-      int s = in.nextInt() - 1;
       g = new ArrayList[n];
       for (int i = 0; i < n; i++)
         g[i] = new ArrayList<Edge>();
