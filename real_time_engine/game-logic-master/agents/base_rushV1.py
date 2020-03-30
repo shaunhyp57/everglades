@@ -80,20 +80,19 @@ class base_rushV1:
     # end get_action
 
     def act_all_cycle(self,actions=np.zeros((7,2))):
-        print ('~~~~~~~~~~~~~~')
+        
         self.get_location(2)    
         for i in range(0,7):
             if self.get_location(i) != 11.0:
-                print("tesssssssssssssssssssssssssssssssssssssssssssssssssst")
                 actions[i] = [self.group_num, self.node_num]
             
                 #self.group_num = ((self.group_num-1) + 1) % self.grouplen + 1
                 self.group_num = (self.group_num + 1) % self.grouplen 
                 nodetest = ((self.node_num-1) + 1) % self.nodelen + 1
                 self.node_num = nodetest if self.group_num == 0 else self.node_num
-        print('---------')
-        print(actions)
-        print('---------')
+        #print('---------')
+        #print(actions)
+        #print('---------')
         return actions
     def update_locations(self,obs):
         i = 45
@@ -108,6 +107,6 @@ class base_rushV1:
             i = i + 5
             index = index + 1
     def get_location(self,group_number):
-        print(self.group_location)
+        #print(self.group_location)
         return self.group_location[group_number]
 # end class

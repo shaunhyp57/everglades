@@ -117,7 +117,7 @@ class GameState:
             for unitID,unitHealth in zip(lines[4],lines[5]):
                 self.game_units[int(unitID)].set_health(unitHealth)
         
-        self.print_summary()
+        #self.print_summary()
 
     ''' update_game_state utility and utility to build feature lists   '''
     #get a list of reaming units for each player. 
@@ -233,7 +233,7 @@ class GameState:
             
             model_turn=round(model_turn * 0.01,2)
             #print(model_turn)
-            filestr=("datasets2/Game_summary"+str(model_turn)+".csv")
+            filestr=("datasets/Game_summary"+str(model_turn)+".csv")
             
             
             fileCSV = open(filestr,"a+")
