@@ -43,7 +43,7 @@ def train(file_name,i):
     
     
     #normalize data
-   # X = pd.DataFrame(scale(X), columns=feature_cols, index=df.index)
+    X = pd.DataFrame(scale(X), columns=feature_cols, index=df.index)
     #print(X.head())
     
     # Create the model with 100 trees
