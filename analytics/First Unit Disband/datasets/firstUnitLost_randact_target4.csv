@@ -1,4 +1,4 @@
-numberOfTurns,winType,player0Score,player1Score,unitLossTurn,unitLostPlayer,unitLostType,combinedStat,winner
+numberOfTurns,winType,player_0,player_1,unitLossTurn,unitLostPlayer,unitLostType,combinedStat,winner
 150.000000,1,1341,1990,32.000000,0,1,-1,1
 150.000000,1,758,1731,32.000000,1,1,1,1
 150.000000,1,1458,2246,27.000000,1,1,1,1
