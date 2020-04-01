@@ -7,7 +7,7 @@ def list_files(rootdir):
     list=[-1,1]
     r = []
     i=0
-    fileCSV = open("firstUnitLost_target2_randact","w")
+    fileCSV = open("firstUnitLost_swarmagent_randact","w")
     fileCSV.write("numberOfTurns"+','+
     "winType"+','+"player_0"+','+
     "player_1"+','+"unitLossTurn"+','+
