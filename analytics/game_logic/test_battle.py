@@ -12,7 +12,7 @@ from everglades_server import server
 ## Input Variables
 # Agent files must include a class of the same name with a 'get_action' function
 # Do not include './' in file path
-agent0_file = 'agents/random_actions.py'
+agent0_file = 'agents/base_rushV1.py'
 #agent1_file = 'agents/same_commands.py'
 agent1_file = 'agents/random_actions.py'
 
