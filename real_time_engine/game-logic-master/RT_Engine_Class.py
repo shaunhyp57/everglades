@@ -3,6 +3,7 @@ import csv
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.calibration import CalibratedClassifierCV
 import pickle
 import math
 
@@ -30,7 +31,10 @@ class RT_Engine:
     #returns a list of P1,P2 and Tie probabilities
 
     def prediction_alg(self,turn,feature_list):
+        
         pred=self.model_list[turn].predict_proba(feature_list)
+        #Calibrated Classifer predict_prob
+        #pred=self.model_list[turn].predict_proba(feature_list)
         pred_list=[]
         pred_list.append(float(pred[0][0])*100)
         pred_list.append(float(pred[0][1])*100)
@@ -208,8 +212,8 @@ class GameState:
         point_diff=int(self.player_one_score)-int(self.player_two_score)
         feature_list.append(point_diff)
         
-        player1_Base_controll=self.get_opponent_base_control()[0]
-        player2_Base_controll=self.get_opponent_base_control()[1]
+        player1_Base_controll=float(self.get_opponent_base_control()[0])
+        player2_Base_controll=float(self.get_opponent_base_control()[1])
         feature_list.append(player1_Base_controll)
         feature_list.append(player2_Base_controll)
         
@@ -229,7 +233,7 @@ class GameState:
     def print_features_CSV(self):
         
         for item in self.CSV_features:
-            model_turn = math.ceil(float(item[0])/2)
+            model_turn = math.ceil(float(item[0])/5)
             
             model_turn=round(model_turn * 0.01,2)
             #print(model_turn)
@@ -254,7 +258,30 @@ class GameState:
         print("Player 2 Remainging Units : " + str(self.get_player_remaining_units()[1]))
         print("Player 1 Units Average Remaining Health : " + str(self.get_avg_unit_health()[0]) +"\t" + str(self.get_avg_unit_health()[2]) +'%')
         print("Player 2 Units Average Remaining Health : " + str(self.get_avg_unit_health()[1]) +"\t"+ str(self.get_avg_unit_health()[3]) +'%')
+    
+    def print_game_stats(self,pred_list,turn_number):
+        node_dict = {0:"P1",1:"P2",-1:"N"}
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   ","Turn: ",turn_number,"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   Board State    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        for i in range(1,12):
+            print("[",i,"]","\t", end="")
+        print("")
+        for i in range(11):
+            print(node_dict.get(int(self.node_controller[i])),"\t",end="")
+        print("")
+        for i in range(11):
+            print(round(float((self.node_percent[i]))),"%","\t",end="")
+        print("")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("\t\t\t","Player 1:","\t\t\t","Player 2:")
+        print("\t\t\t",self.player_one_score,"\t","   -----Points-----","\t",self.player_two_score)
+        print("\t\t\t",round(float(self.get_opponent_base_control()[0])),"\t","  ---Base Control---","\t",round(float(self.get_opponent_base_control()[1])))
+        print("\t\t\t",self.get_player_remaining_units()[0],"\t"," --Units Remaining--","\t",self.get_player_remaining_units()[1])
+        print("\t\t\t",round(float(self.get_avg_unit_health()[0]),2),"\t"," --Avg. Unit Health--","\t",round(float(self.get_avg_unit_health()[1]),2))
+        print("\t\t\t",str(round(float(pred_list[0])))+"%","\t","--Chance of Winning--","\t",str(round(float(pred_list[1])))+"%")
         
+        print("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End of Turn",turn_number, ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+  
 
 
 #Leaving the Group functionality in place although it will be used very little due to the MoveUpdate bug

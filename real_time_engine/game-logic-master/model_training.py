@@ -3,6 +3,8 @@ import csv
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.calibration import CalibratedClassifierCV
 import pickle
 from sklearn.preprocessing import scale
 
@@ -43,7 +45,7 @@ def train(file_name,i):
     
     
     #normalize data
-    X = pd.DataFrame(scale(X), columns=feature_cols, index=df.index)
+    #X = pd.DataFrame(scale(X), columns=feature_cols, index=df.index)
     #print(X.head())
     
     # Create the model with 100 trees
@@ -51,11 +53,15 @@ def train(file_name,i):
                                random_state=100, 
                                max_features = 'sqrt',
                                n_jobs=-1, verbose = 0)
-
+    #model=KNeighborsClassifier(n_neighbors=25)
     # Fit on training data
     model.fit(X, y)
+    
+    model_sigmoid = CalibratedClassifierCV(model,cv=2, method='isotonic')
+    model_sigmoid.fit(X,y)
+    
     filename='models/model_'+str(round(i,2))+'.PICKLE'
     
-    pickle.dump(model,open(filename,'wb'))
+    pickle.dump(model_sigmoid,open(filename,'wb'))
 
 list_files(rootdir)

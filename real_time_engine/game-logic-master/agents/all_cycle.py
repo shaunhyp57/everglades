@@ -86,9 +86,7 @@ class all_cycle:
             self.group_num = (self.group_num + 1) % self.grouplen 
             nodetest = ((self.node_num-1) + 1) % self.nodelen + 1
             self.node_num = nodetest if self.group_num == 0 else self.node_num
-        print('---------')
-        print(actions)
-        print('---------')
+        
         return actions
 
 # end class

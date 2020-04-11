@@ -19,12 +19,15 @@ agent0_file = ('agents/random_actions.py')
 #agent0_file = ('agents/base_rushV1.py')
 #agent0_file = ('agents/Cycle_BRush_Turn50.py')
 #agent0_file = ('agents/Cycle_BRush_Turn25.py')
+#agent0_file = ('agents/cycle_targetedNode11.py')
 
 
 #agent1_file = 'agents/same_commands.py'
-agent1_file = 'agents/random_actions.py'
+#agent1_file = 'agents/random_actions.py'
 #agent1_file = ('agents/all_cycle.py')
 #agent1_file = ('agents/base_rushV1.py')
+agent1_file = ('agents/Cycle_BRush_Turn50.py')
+#agent1_file = ('agents/cycle_targetedNode11.py')
 
 config_dir = 'config/'
 map_file = config_dir + 'DemoMap.json'

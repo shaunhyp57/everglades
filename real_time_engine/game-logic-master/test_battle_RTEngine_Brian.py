@@ -21,12 +21,15 @@ agent0_file = ('agents/random_actions.py')
 #agent0_file = ('agents/base_rushV1.py')
 #agent0_file = ('agents/Cycle_BRush_Turn50.py')
 #agent0_file = ('agents/Cycle_BRush_Turn25.py')
-#agent0_file = ('agents/SwarmAgent.py')
+#agent0_file = ('agents/cycle_targetedNode11.py')
+
 
 #agent1_file = 'agents/same_commands.py'
-agent1_file = 'agents/random_actions.py'
+#agent1_file = 'agents/random_actions.py'
 #agent1_file = ('agents/all_cycle.py')
-#agent1_file = ('agents/base_rushV1.py')
+agent1_file = ('agents/base_rushV1.py')
+#agent1_file = ('agents/Cycle_BRush_Turn50.py')
+#agent1_file = ('agents/cycle_targetedNode11.py')
 
 config_dir = 'config/'
 map_file = config_dir + 'DemoMap.json'
@@ -87,7 +90,7 @@ while not done:
 
     observations, reward, done, info = env.step(actions)
     
-    print("***************************")
+    #print("***************************")
     
     if turn_number == 1:
         Running_Game=GameState(data_List)
@@ -102,11 +105,13 @@ while not done:
     #print(refined_list(data_List['NODE_Knowledge'],turn_number)[0][1][0]) #all cells are a list/tuple so even if it is one element it must be ref. with zero
    
   
-    print("Turn >>>>",turn_number)
-    predictions = Engine.prediction_alg(math.ceil(float(featureList[0])/2)-1,[featureList[1:]])
-    print(predictions)
+    #print(featureList)
+    #print(math.ceil(float(featureList[0])/5)-1)
+    predictions = Engine.prediction_alg(math.ceil(float(featureList[0])/5)-1,[featureList[1:]])
+    Running_Game.print_game_stats(predictions,turn_number)
+    #print(predictions)
     
-    print("***************************")
+    #print("***************************")
     
     turn_number+=1
 
