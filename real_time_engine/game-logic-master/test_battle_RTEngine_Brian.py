@@ -25,11 +25,13 @@ agent0_file = ('agents/random_actions.py')
 
 
 #agent1_file = 'agents/same_commands.py'
-#agent1_file = 'agents/random_actions.py'
+agent1_file = 'agents/random_actions.py'
 #agent1_file = ('agents/all_cycle.py')
-agent1_file = ('agents/base_rushV1.py')
+#agent1_file = ('agents/base_rushV1.py')
 #agent1_file = ('agents/Cycle_BRush_Turn50.py')
-#agent1_file = ('agents/cycle_targetedNode11.py')
+#agent1_file = ('agents/cycle_targetedNode11P2.py')
+#agent1_file = ('agents/cycle_targetedNode1.py')
+#agent1_file = ('agents/Cycle_BRush_Turn25.py')
 
 config_dir = 'config/'
 map_file = config_dir + 'DemoMap.json'
@@ -108,11 +110,15 @@ while not done:
     #print(featureList)
     #print(math.ceil(float(featureList[0])/5)-1)
     predictions = Engine.prediction_alg(math.ceil(float(featureList[0])/5)-1,[featureList[1:]])
+    pred_player=Engine.predict_player(math.ceil(float(featureList[0])/5)-1,[featureList[1:]])
+    
     Running_Game.print_game_stats(predictions,turn_number)
-    #print(predictions)
+    Running_Game.append_proba_list(turn_number,pred_player,predictions)
+    #print("~~~~~>>>>",pred_player)
     
     #print("***************************")
     
     turn_number+=1
-
+    
+Running_Game.print_probibility_list()
 

@@ -49,7 +49,7 @@ def train(file_name,i):
     #print(X.head())
     
     # Create the model with 100 trees
-    model = RandomForestClassifier(n_estimators=128, 
+    model = RandomForestClassifier(n_estimators=64, 
                                random_state=100, 
                                max_features = 'sqrt',
                                n_jobs=-1, verbose = 0)

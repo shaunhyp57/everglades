@@ -6,6 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.calibration import CalibratedClassifierCV
 import pickle
 import math
+import datetime
 
 
 rootdir = 'models'
@@ -42,12 +43,15 @@ class RT_Engine:
         
         return pred_list
       
-        
-        
+    def predict_player(self,turn,feature_list):
+        predicted_player = self.model_list[turn].predict(feature_list)
+        return predicted_player
+    
 class GameState:
     def __init__(self,data_list):
         '''Intialize game state '''
         self.CSV_features=[]
+        self.probability_list=[]
         #set starting scores
         self.player_one_score=0
         self.player_two_score=0
@@ -228,7 +232,7 @@ class GameState:
         return feature_list
     
     #Used to generate data sets
-    #writes any features stored in CSV_features to CSV files turn by turn (in two turn pairs) to \datasets
+    #writes any features stored in CSV_features to CSV files turn by turn (in sets of 5 turns) to \datasets
     #Used to train models for the prediction algorithm: model_training.py
     def print_features_CSV(self):
         
@@ -246,6 +250,28 @@ class GameState:
                 
                 fileCSV.write(str(element)+',')
             fileCSV.write("\n")
+    def append_proba_list(self,turn,predicted_winner,prob_list):
+        APL_list=[]
+        APL_list.append(turn)
+        APL_list.append(predicted_winner[0])
+        APL_list.append(prob_list[0])
+        APL_list.append(prob_list[1])
+        #print(APL_list)
+        self.probability_list.append(APL_list)
+    def print_probibility_list(self):
+        date = datetime.datetime.today()
+        date_frmt = date.strftime('%Y.%m.%d-%H.%M.%S')
+        
+        filestr=("game_prediction_info/prediction_summary"+date_frmt+".csv")
+        probCSV = open(filestr,"a+")
+        probCSV.write("Turn"+","+"Predicted_Winner"+","+"P1_Prob"+","+"P2_Prob"+","+"Winner"+"\n")
+        for row in self.probability_list:
+            for element in row:
+            
+                probCSV.write(str(element)+',')
+            probCSV.write(str(self.determine_winner(150)))
+            probCSV.write('\n')
+            #print(row,'\n')
     def print_summary(self):
         print("~~~~~~~~   Board State    ~~~~~~~~~")
         print("Node Control" + str(self.node_controller))
