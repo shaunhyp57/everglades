@@ -12,7 +12,7 @@ TYPICAL INSTALLATION
 --------------------
 Clone this repository with ``git``
 ::
-  git clone https://github.com/.git
+  git clone https://github.com/shaunhyp57/LMCO-Everglades-Robot-Behavior-Analytics.git
   cd LMCO-Everglades-Robotic-Behavior-Analytics
 
 
