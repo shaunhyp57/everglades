@@ -13,7 +13,7 @@ TYPICAL INSTALLATION
 Clone this repository with ``git``
 ::
   git clone https://github.com/.git
-  cd EVERGLADES-RBA
+  cd LMCO-Everglades-Robotic-Behavior-Analytics
 
 
 
