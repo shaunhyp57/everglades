@@ -36,7 +36,7 @@ agent1_mod = importlib.import_module(agent1_name.replace('/','.'), package='.Use
 #agent1_mod = importlib.import_module(agent1_name.replace('/','.'), package='.Users.brian.game-logic-master.agents.random_actions')
 agent1_class = getattr(agent1_mod, os.path.basename(agent1_name))
 
-## Main Script
+## main script
 env = gym.make('everglades-v0')
 players = {}
 names = {}
