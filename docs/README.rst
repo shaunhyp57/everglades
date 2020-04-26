@@ -12,11 +12,12 @@ TYPICAL INSTALLATION
 --------------------
 Clone this repository with ``git``
 ::
-  git clone https://github.com/shaunhyp57/LMCO-Everglades-Robot-Behavior-Analytics.git
-  cd LMCO-Everglades-Robotic-Behavior-Analytics
+  git clone https://github.com/shaunhyp57/everglades.git
+  cd everglades
 
 # Installation Instructions
-## Dependencies
+Dependencies
+____________
 Everglades runs in a Python3 environment. Ensure the python packages ***gym*** and ***numpy*** are installed. This can be done with:
 ::
   pip install numpy
@@ -24,7 +25,8 @@ Everglades runs in a Python3 environment. Ensure the python packages ***gym*** a
 
 If your computing environment requires it, make sure to include the --cert and --proxy flags with the pip commands.
 
-## Installation
+Installation
+____________
 From the root Everglades directory, install the Everglades environment with:
 ::
   pip install -e gym-everglades/
@@ -39,9 +41,11 @@ Finally, edit the ***test_battle.py*** script to reflect the current working env
 -  config directory
 -  output directory
 
-# File and Directory Descriptions
+File and Directory Descriptions
+_______________________________
 
-### ./agents/
+./agents/
++++++++++
 
 This is a common directory where any created agents for the Everglades game can be stored. Some example files are included with the package.
 
