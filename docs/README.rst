@@ -15,7 +15,6 @@ Clone this repository with ``git``
   git clone https://github.com/shaunhyp57/everglades.git
   cd everglades
 
-# Installation Instructions
 Dependencies
 ____________
 Everglades runs in a Python3 environment. Ensure the python packages ***gym*** and ***numpy*** are installed. This can be done with:
@@ -49,15 +48,18 @@ _______________________________
 
 This is a common directory where any created agents for the Everglades game can be stored. Some example files are included with the package.
 
-### ./config/
+./config/
++++++++++
 
 This directory contains setup files which are used for game logic. Currently only the DemoMap.json and UnitDefinitions.json files are used for gameplay. They can be swapped for files defining a different map or units, but note that any swaps likely will cause inflexible server logic to break.
 
-### ./everglades-server/
+./everglades-server/
+++++++++++++++++++++
 
 This directory contains the main logic for the Everglades game.
 
-### ./game_telemetry/
+./game_telemetry/
++++++++++++++++++
 
 This is the default output directory for any match telemetry output. It is only populated locally and not stored in the git repository.
 
