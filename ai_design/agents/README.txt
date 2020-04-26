@@ -1,1 +1,0 @@
-This file contains agent scripts for use with the EVERGLADES game platform. It also contains some helper scripts that are used to determine control variables and other necessary data for script execution.
