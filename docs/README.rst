@@ -59,23 +59,19 @@ This directory contains the main logic for the Everglades game.
 
 This is the default output directory for any match telemetry output. It is only populated locally and not stored in the git repository.
 
-./gym-everglades/
-_________________
+``./gym-everglades/``
 
 This directory is the OpenAI Gym for project EVERGLADES. It follows the Gym API standards.
 
-./test_battle.py
-________________
+``./test_battle.py``
 
 This is the script to execute for running two agents against each other.
 
-./README.md
-___________
+``./README.md``
 
 This file, explaining important directory structure and installation requirements.
 
-./.gitignore
-++++++++++++
+``./.gitignore``
 
 This file tells git to ignore compiled files and telemetry output.
 
