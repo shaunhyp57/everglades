@@ -85,11 +85,11 @@ This file tells git to ignore compiled files and telemetry output.
 
 AUTHORS
 _______
-- `Brian Catrett`
-- `Chandler Epes`
-- `Shauna Hyppolite`
-- `Sebastian Krupa`
-- `Read O'Quinn`
+- `Brian Catrett`_
+- `Chandler Epes`_
+- `Shauna Hyppolite`_
+- `Sebastian Krupa`_
+- `Read O'Quinn`_
 
 .. _`Brian Catrett` : https://github.com/BCatrett
 .. _`Chandler Epes` : https://github.com/cfepes
