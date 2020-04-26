@@ -4,9 +4,9 @@ EVERGLADES is a synchronous, turn-based 1v1 strategy game originally developed b
 
 The primary goals as the Robot Behavior Analytics team:
 
-- Characterize Everglades match output to determine behaviors that most often lead to wins
+- Characterize EVERGLADES match output to determine behaviors that most often lead to wins
 - Create AI scripts of targeted behaviors to test hypothesis from characterization activity
-- Develop a real-time analytics engine that runs simultaneously with Everglades match playback
+- Develop a real-time analytics engine that runs simultaneously with EVERGLADES match playback
 
 TYPICAL INSTALLATION
 --------------------
@@ -22,15 +22,15 @@ EVERGLADES runs in a Python3 environment. Ensure the python packages ``gym`` and
   pip install numpy
   pip install gym
 
-If your computing environment requires it, make sure to include the ``--cert`` and ``--proxy`` flags with the pip commands.
+If your computing environment requires it, make sure to include the ``--cert`` and ``--proxy`` flags with the ``pip`` commands.
 
 INSTALLATION
 ------------
-From the root Everglades directory, install the EVERGLADES environment with:
+From the root ``everglades`` directory, install the EVERGLADES environment with:
 ::
   pip install -e gym-everglades/
 
-Next, install the Everglades server with:
+Next, install the EVERGLADES server with:
 ::
   pip install -e everglades-server/
 
@@ -53,7 +53,7 @@ This directory contains setup files which are used for game logic. Currently onl
 
 ``./everglades-server/``
 
-This directory contains the main logic for the Everglades game.
+This directory contains the main logic for the EVERGLADES game.
 
 ``./game_telemetry/``
 
