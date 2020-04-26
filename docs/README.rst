@@ -16,7 +16,7 @@ Clone this repository with ``git``
   cd everglades
 
 DEPENDENCIES
-____________
+------------
 EVERGLADES runs in a Python3 environment. Ensure the python packages ``gym`` and ``numpy`` are installed. This can be done with:
 ::
   pip install numpy
@@ -25,7 +25,7 @@ EVERGLADES runs in a Python3 environment. Ensure the python packages ``gym`` and
 If your computing environment requires it, make sure to include the ``--cert`` and ``--proxy`` flags with the pip commands.
 
 INSTALLATION
-____________
+------------
 From the root Everglades directory, install the EVERGLADES environment with:
 ::
   pip install -e gym-everglades/
@@ -41,7 +41,7 @@ Finally, edit the ``test_battle.py`` script to reflect the current working envir
 -  output directory
 
 FILE AND DIRECTORY DESCRIPTION
-_______________________________
+------------------------------
 
 ./agents/
 +++++++++
@@ -84,7 +84,7 @@ This file, explaining important directory structure and installation requirement
 This file tells git to ignore compiled files and telemetry output.
 
 AUTHORS
-_______
+-------
 - `Brian Catrett`_
 - `Chandler Epes`_
 - `Shauna Hyppolite`_
