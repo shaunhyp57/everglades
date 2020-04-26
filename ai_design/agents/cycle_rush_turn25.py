@@ -30,7 +30,7 @@ class Cycle_Rush_Turn25:
     def __init__(self, action_space, player_num):
         self.action_space = action_space
         self.num_groups = NUM_GROUPS
-        self.num_nodes=11
+        self.num_nodes = 11
         self.num_actions = action_space
         self.shape = (self.num_actions, 2)
 
@@ -49,7 +49,7 @@ class Cycle_Rush_Turn25:
         self.node_num = 2
         
         self.turn_number = 0
-        self.group_location=[1,1,1,1,1,1,1,1,1,1,1,1]
+        self.group_location = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
     def get_action(self, obs):
         action = np.zeros(self.shape)
@@ -64,7 +64,7 @@ class Cycle_Rush_Turn25:
 
         return action
 
-    def act_all_cycle(self, actions = np.zeros((7,2))):
+    def act_all_cycle(self, actions = np.zeros((7, 2))):
         action = np.zeros(self.shape)
         self.get_location(2)
         i = 0
@@ -74,10 +74,10 @@ class Cycle_Rush_Turn25:
             # base rush checks if the first 1-7 groups' (i) last location is the oppenents base
             # Note: There is an issue with checking the current group (group_num) instead of the first 1-7 groups
             # originaly this was implemented but it did not work properly so we only check if the first seven groups have reached the base.
-            if self.get_location(i) != 11.0 and self.get_turn_number()>25 or self.get_turn_number()<25:
+            if self.get_location(i) != 11.0 and self.get_turn_number() > 25 or self.get_turn_number() < 25:
                 actions[i] = [self.group_num, self.node_num]
                 self.group_num = (self.group_num + 1) % self.grouplen 
-                nodetest = ((self.node_num-1) + 1) % self.nodelen + 1
+                nodetest = ((self.node_num - 1) + 1) % self.nodelen + 1
                 self.node_num = nodetest if self.group_num == 0 else self.node_num
             i = i + 1
             
