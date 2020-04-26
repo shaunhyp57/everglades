@@ -43,38 +43,34 @@ Finally, edit the ``test_battle.py`` script to reflect the current working envir
 FILE AND DIRECTORY DESCRIPTION
 ------------------------------
 
-./agents/
-+++++++++
+``./agents/``
 
 This is a common directory where any created agents for the EVERGLADES game can be stored. Some example files are included with the package.
 
-./config/
-+++++++++
+``./config/``
 
 This directory contains setup files which are used for game logic. Currently only the ``DemoMap.json`` and ``UnitDefinitions.json`` files are used for gameplay. They can be swapped for files defining a different map or units, but note that any swaps likely will cause inflexible server logic to break.
 
-./everglades-server/
-++++++++++++++++++++
+``./everglades-server/``
 
 This directory contains the main logic for the Everglades game.
 
-./game_telemetry/
-+++++++++++++++++
+``./game_telemetry/``
 
 This is the default output directory for any match telemetry output. It is only populated locally and not stored in the git repository.
 
 ./gym-everglades/
-+++++++++++++++++
+_________________
 
 This directory is the OpenAI Gym for project EVERGLADES. It follows the Gym API standards.
 
 ./test_battle.py
-++++++++++++++++
+________________
 
 This is the script to execute for running two agents against each other.
 
 ./README.md
-+++++++++++
+___________
 
 This file, explaining important directory structure and installation requirements.
 
