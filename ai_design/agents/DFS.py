@@ -1,4 +1,4 @@
-# Python3 program to print DFS traversal 
+# program to print DFS traversal 
 # from a given given graph 
 from collections import defaultdict 
 
