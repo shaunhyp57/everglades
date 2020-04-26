@@ -1,12 +1,7 @@
-# Standard library imports
 import os
 import time
 import pdb
-
-# Specialized imports
 import numpy as np
-#import gym
-#import gym_everglades
 
 NODE_CONNECTIONS = {
     1: [2, 4],
@@ -42,7 +37,6 @@ TAR_NODE = {
     #TODO Dijkstra's 
 }
 
-
 NUM_GROUPS = 12
 
 ENV_MAP = {
@@ -52,7 +46,7 @@ ENV_MAP = {
     'everglades-vision-stoch': 'EvergladesVisionStochastic-v0',
 }
 
-class cycle_targetedNode1:
+class cycle_target_node1:
     def __init__(self, action_space, player_num):
         self.action_space = action_space
         self.num_groups = NUM_GROUPS
@@ -63,7 +57,6 @@ class cycle_targetedNode1:
         self.first_turn = True
         self.steps = 0
         self.player_num = player_num
-        #print('player_num: {}'.format(player_num))
 
         # Types:
         #   0 - Controller
@@ -75,55 +68,45 @@ class cycle_targetedNode1:
         self.group_num = 1
         self.node_num = 2
 
-        #Determines which node to rush towards
+        # Determines which node to rush towards
         self.tarNode = 1
-        #stores group locations
-        self.group_location=[1,1,1,1,1,1,1,1,1,1,1,1]
+        # stores group locations
+        self.group_location=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
-        #TODO could make the script more efficient by checking if each group
-        #can move instead of just trying to move the next seven groups
-        self.group_movable=[0,0,0,0,0,0,0,0,0,0,0,0]
-    # end __init__
+        # TODO could make the script more efficient by checking if each group
+        # can move instead of just trying to move the next seven groups
+        self.group_movable=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     def get_action(self, obs):
-        #print('!!!!!!! Observation !!!!!!!!')
-        ##print(obs)
-        #print(obs[0])
-        #for i in range(45,101,5):
-        #    print(obs[i:i+5])
-        #print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         action = np.zeros(self.shape)
 
-        # The next line should really be 0, but there is an env bug that the agent doesn't get
+        # the next line should really be 0, but there is an env bug that the agent doesn't get
         # to see the 0th observation to make it's first move; one turn gets blown
         if not self.first_turn:
             self.update_groups(obs)
             action = self.node_rush(action, self.isNodeControlled(obs))
         else:
             self.first_turn = False
-        #print(action)
         
         return action
-    # end get_action
 
-    def act_all_cycle(self,actions=np.zeros((7,2))):
-        for i in range(0,7):
+    def act_all_cycle(self,actions = np.zeros((7, 2))):
+        for i in range(0, 7):
             actions[i] = [self.group_num, self.node_num]
             self.group_num = (self.group_num + 1) % self.grouplen 
             nodetest = (self.node_num) % self.nodelen + 1
             self.node_num = nodetest if self.group_num == 0 else self.node_num
         return actions
-    #end act_all_cycle
 
-    # Parameter nodeControl is determined by calling isNodeControlled function
-    def node_rush(self, actions=np.zeros((7,2)), nodeControl = False):
+    # parameter nodeControl is determined by calling isNodeControlled function
+    def node_rush(self, actions = np.zeros((7, 2)), nodeControl = False):
         if nodeControl:
             return self.act_all_cycle(actions)
         else:
-            #determine next nodes for target
+            # determine next nodes for target
             nextNodes = TAR_NODE[self.tarNode]
-            for i in range(0,7):
-                #find node to go to for current group number
+            for i in range(0, 7):
+                # find node to go to for current group number
                 curNode = int(self.group_location[self.group_num])
                 nextNode = nextNodes[curNode - 1]
 
@@ -132,7 +115,6 @@ class cycle_targetedNode1:
                 self.group_num = (self.group_num + 1) % self.grouplen
             
             return actions
-    #end node_rush
     
     def update_groups(self, obs):
         i = 45
@@ -140,10 +122,9 @@ class cycle_targetedNode1:
         while i < 101:
             
             self.group_location[index] = obs[i]
-            self.group_movable[index] = obs[i+3]
+            self.group_movable[index] = obs[i + 3]
             i += 5
             index += 1
-    #end get_location
 
     def isNodeControlled(self, obs):
         desiredControlLevel = 75
@@ -151,5 +132,3 @@ class cycle_targetedNode1:
             return True
         else:
             return False
-    #end isNodeControlled
-# end class
