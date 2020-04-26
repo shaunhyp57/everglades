@@ -75,6 +75,8 @@ This file, explaining important directory structure and installation requirement
 
 This file tells git to ignore compiled files and telemetry output.
 
+Please read the `wiki page for the EVERGLADES Analytics and Engine`_ to learn more about the purpose of the game and the analytics.
+
 AUTHORS
 -------
 - `Brian Catrett`_
@@ -88,3 +90,4 @@ AUTHORS
 .. _`Shauna Hyppolite` : https://github.com/shaunhyp57
 .. _`Sebastian Krupa` : https://github.com/sebciomax
 .. _`Read O'Quinn` : https://github.com/ReadOQ
+.. _`wiki page for the EVERGLADES Analytics and Engine` : https://github.com/shaunhyp57/everglades/wiki
