@@ -17,7 +17,7 @@ Clone this repository with ``git``
 
 Dependencies
 ____________
-Everglades runs in a Python3 environment. Ensure the python packages ***gym*** and ***numpy*** are installed. This can be done with:
+EVERGLADES runs in a Python3 environment. Ensure the python packages ``gym`` and ``numpy`` are installed. This can be done with:
 ::
   pip install numpy
   pip install gym
@@ -26,7 +26,7 @@ If your computing environment requires it, make sure to include the --cert and -
 
 Installation
 ____________
-From the root Everglades directory, install the Everglades environment with:
+From the root Everglades directory, install the EVERGLADES environment with:
 ::
   pip install -e gym-everglades/
 
@@ -34,7 +34,7 @@ Next, install the Everglades server with:
 ::
   pip install -e everglades-server/
 
-Finally, edit the ***test_battle.py*** script to reflect the current working environment. Update the following lines with their path in the filesystem:
+Finally, edit the ``test_battle.py`` script to reflect the current working environment. Update the following lines with their path in the file system:
 -  agent 0 file
 -  agent 1 file
 -  config directory
@@ -63,19 +63,23 @@ This directory contains the main logic for the Everglades game.
 
 This is the default output directory for any match telemetry output. It is only populated locally and not stored in the git repository.
 
-### ./gym-everglades/
+./gym-everglades/
++++++++++++++++++
 
 This directory is the OpenAI Gym for project Everglades. It follows the Gym API standards.
 
-### ./test_battle.py
+./test_battle.py
+++++++++++++++++
 
 This is the script to execute for running two agents against each other.
 
-### ./README.md
+./README.md
++++++++++++
 
 This file, explaining important directory structure and installation requirements.
 
-### ./.gitignore
+./.gitignore
+++++++++++++
 
 This file tells git to ignore compiled files and telemetry output.
 
