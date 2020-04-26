@@ -15,7 +15,7 @@ Clone this repository with ``git``
   git clone https://github.com/shaunhyp57/everglades.git
   cd everglades
 
-Dependencies
+DEPENDENCIES
 ____________
 EVERGLADES runs in a Python3 environment. Ensure the python packages ``gym`` and ``numpy`` are installed. This can be done with:
 ::
@@ -24,7 +24,7 @@ EVERGLADES runs in a Python3 environment. Ensure the python packages ``gym`` and
 
 If your computing environment requires it, make sure to include the ``--cert`` and ``--proxy`` flags with the pip commands.
 
-Installation
+INSTALLATION
 ____________
 From the root Everglades directory, install the EVERGLADES environment with:
 ::
@@ -40,7 +40,7 @@ Finally, edit the ``test_battle.py`` script to reflect the current working envir
 -  config directory
 -  output directory
 
-File and Directory Descriptions
+FILE AND DIRECTORY DESCRIPTION
 _______________________________
 
 ./agents/
@@ -83,5 +83,16 @@ This file, explaining important directory structure and installation requirement
 
 This file tells git to ignore compiled files and telemetry output.
 
+AUTHORS
+_______
+- `Brian Catrett`
+- `Chandler Epes`
+- `Shauna Hyppolite`
+- `Sebastian Krupa`
+- `Read O'Quinn`
 
-
+.. _`Brian Catrett` : https://github.com/BCatrett
+.. _`Chandler Epes` : https://github.com/cfepes
+.. _`Shauna Hyppolite` : https://github.com/shaunhyp57
+.. _`Sebastian Krupa` : https://github.com/sebciomax
+.. _`Read O'Quinn` : https://github.com/ReadOQ
