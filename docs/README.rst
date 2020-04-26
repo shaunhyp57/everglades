@@ -22,7 +22,7 @@ EVERGLADES runs in a Python3 environment. Ensure the python packages ``gym`` and
   pip install numpy
   pip install gym
 
-If your computing environment requires it, make sure to include the --cert and --proxy flags with the pip commands.
+If your computing environment requires it, make sure to include the ``--cert`` and ``--proxy`` flags with the pip commands.
 
 Installation
 ____________
@@ -46,12 +46,12 @@ _______________________________
 ./agents/
 +++++++++
 
-This is a common directory where any created agents for the Everglades game can be stored. Some example files are included with the package.
+This is a common directory where any created agents for the EVERGLADES game can be stored. Some example files are included with the package.
 
 ./config/
 +++++++++
 
-This directory contains setup files which are used for game logic. Currently only the DemoMap.json and UnitDefinitions.json files are used for gameplay. They can be swapped for files defining a different map or units, but note that any swaps likely will cause inflexible server logic to break.
+This directory contains setup files which are used for game logic. Currently only the ``DemoMap.json`` and ``UnitDefinitions.json`` files are used for gameplay. They can be swapped for files defining a different map or units, but note that any swaps likely will cause inflexible server logic to break.
 
 ./everglades-server/
 ++++++++++++++++++++
@@ -66,7 +66,7 @@ This is the default output directory for any match telemetry output. It is only 
 ./gym-everglades/
 +++++++++++++++++
 
-This directory is the OpenAI Gym for project Everglades. It follows the Gym API standards.
+This directory is the OpenAI Gym for project EVERGLADES. It follows the Gym API standards.
 
 ./test_battle.py
 ++++++++++++++++
