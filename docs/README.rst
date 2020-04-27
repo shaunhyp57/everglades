@@ -34,7 +34,7 @@ Next, install the EVERGLADES server with:
 ::
   pip install -e everglades-server/
 
-Finally, edit the ``test_battle.py`` script to reflect the current working environment. Update the following lines with their path in the file system:
+Finally, edit the ``test_battle_rtengine.py`` script to reflect the current working environment. Update the following lines with their path in the file system:
 -  agent 0 file
 -  agent 1 file
 -  config directory
@@ -47,27 +47,55 @@ FILE AND DIRECTORY DESCRIPTION
 
 This is a common directory where any created agents for the EVERGLADES game can be stored. Some example files are included with the package.
 
+``./analysis_everglades/``
+
+This directory contains analysis and machine learning modeling for the EVERGLADES game
+
+``./docs/``
+
+This directory contains the Design Documents and presentation for the Robot Behavior Analysis and Real Time Engine creation
+
+``./database/``
+
+This directory contains the database schema and information
+
 ``./config/``
 
 This directory contains setup files which are used for game logic. Currently only the ``DemoMap.json`` and ``UnitDefinitions.json`` files are used for gameplay. They can be swapped for files defining a different map or units, but note that any swaps likely will cause inflexible server logic to break.
+
+``./engine_analysis/``
+
+This directory contains the files used for performance metrics for the Real Time Engine
 
 ``./everglades-server/``
 
 This directory contains the main logic for the EVERGLADES game.
 
-``./game_telemetry/``
+``./game_prediction_info/``
 
-This is the default output directory for any match telemetry output. It is only populated locally and not stored in the git repository.
+This directory contains prediction summaries from running the Real Time Engine
 
 ``./gym-everglades/``
 
 This directory is the OpenAI Gym for project EVERGLADES. It follows the Gym API standards.
 
-``./test_battle.py``
+``./rte_model_training/``
 
-This is the script to execute for running two agents against each other.
+This directory contains the models trained for the Real Time Engine
 
-``./README.md``
+``./RT_Engine_Class.py``
+
+This is a class imported in the ``test_battle_rtengine.py`` script
+
+``./test_battle_rtengine.py``
+
+This is the script to execute for running two agents against each other for the Real Time Engine.
+
+``./test_battles/``
+
+This directory contains other versions of the ``test_battle_rtengine.py`` script
+
+``./README.rst``
 
 This file, explaining important directory structure and installation requirements.
 
@@ -75,7 +103,7 @@ This file, explaining important directory structure and installation requirement
 
 This file tells git to ignore compiled files and telemetry output.
 
-Please read the `wiki page for the EVERGLADES Analytics and Engine`_ to learn more about the purpose of the game and the analytics.
+Please read the `wiki page for the EVERGLADES Analytics and Engine`_ to learn more about the game and the analytics.
 
 AUTHORS
 -------
