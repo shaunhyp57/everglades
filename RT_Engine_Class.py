@@ -9,7 +9,7 @@ import math
 import datetime
 
 
-rootdir = 'models'
+rootdir = 'model_training/models'
 
 class RT_Engine:
     #loads the machine learning models that are saved in rootdir
