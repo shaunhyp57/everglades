@@ -104,7 +104,7 @@ This file, explaining important directory structure and installation requirement
 
 This file tells git to ignore compiled files and telemetry output.
 
-Please read the `wiki page for the EVERGLADES Analytics and Engine`_ to learn more about the game and the analytics.
+Please read the `wiki page for the EVERGLADES Analytics and Engine`_ to learn more about the game, analytics, and real time engine.
 
 AUTHORS
 -------
