@@ -36,10 +36,10 @@ Next, install the EVERGLADES server with:
 
 Finally, edit the ``test_battle_rtengine.py`` script to reflect the current working environment. Update the following lines with their path in the file system:
 
--  agent 0 file
--  agent 1 file
--  config directory
--  output directory
+-  ``agent0_file``
+-  ``agent1_file``
+-  ``config_dir``
+-  ``output_dir``
 
 FILE AND DIRECTORY DESCRIPTION
 ------------------------------
